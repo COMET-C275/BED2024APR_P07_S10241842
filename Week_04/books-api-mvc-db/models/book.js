@@ -1,4 +1,7 @@
 // Step 5
+const sql = require("mssql");
+const dbConfig = require("../dbConfig");
+
 // Part 1 - Add code for book.js
 class Book {
     constructor(id, title, author) {
