@@ -92,6 +92,19 @@ async function searchUsers(req, res) {
     }
 }
 
+// Step 6, part 2
+async function getUsersWithBooks(req, res) {
+    try {
+      // Call the method from the User model to retrieve users with their borrowed books
+      const users = await User.getUsersWithBooks();
+      // Send a Json response upon successful retrieval
+      res.json(users);
+    } 
+    catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error fetching users with books" });
+    }
+}
 
 
 // Export the controller functions
@@ -101,5 +114,6 @@ module.exports = {
     getUserById,
     updateUser,
     deleteUser,
-    searchUsers
+    searchUsers,
+    getUsersWithBooks
 };

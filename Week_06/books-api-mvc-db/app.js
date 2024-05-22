@@ -45,6 +45,8 @@ app.delete('/users/:id', usersController.deleteUser); // Delete user
 // Step 5, Part 1
 app.get("/users/search", usersController.searchUsers);
 
+// Step 6, Part 3
+app.get("/users/with-books", usersController.getUsersWithBooks);
 
 
 app.listen(port, async () => {
