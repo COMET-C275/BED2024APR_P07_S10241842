@@ -54,7 +54,7 @@ async function getUserById(req, res) {
 async function updateUser(req, res) {
     try {
         // Extract user ID and updated data from the request and call the method to update the user info
-        const updatedUser = await User.updatedUser(req.params.id, res.body);
+        const updatedUser = await User.updateUser(req.params.id, res.body);
         // Return a success reponse upon successful update
         res.status(200).json({ success: true, data: updatedUser });
     }
