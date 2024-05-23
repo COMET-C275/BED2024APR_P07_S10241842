@@ -43,6 +43,6 @@ VALUES
   (3, 1004);  -- User 3 has book 6
 
 -- For testing and verification purposes
---SELECT * FROM Books;
---SELECT * FROM Users;
---SELECT * FROM UserBooks;
+SELECT * FROM Books;
+SELECT * FROM Users;
+SELECT * FROM UserBooks;

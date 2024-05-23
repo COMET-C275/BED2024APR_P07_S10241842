@@ -35,6 +35,17 @@ app.delete("/books/:id", booksController.deleteBook); // DELETE for deleting boo
 // Import the user controller from ./controllers/usersController
 const usersController = require('./controllers/usersController');
 
+// The searchUsers and getUsersWithBooks must be above the :id  routes or else postman might
+// mistake something like users/:id for users/search. Think of it as a pipeline, data flows
+// from top to botton so if you dont place step 5 part and step 6 part 3 below the rest of 
+// routes, an app like Postman will give you an error.
+
+// Step 5, Part 1
+app.get("/users/search", usersController.searchUsers);
+
+// Step 6, Part 3
+app.get("/users/with-books", usersController.getUsersWithBooks);
+
 // Define the routes for user functionalities and call the corresponding functions
 app.post('/users', usersController.createUser); // Create user
 app.get('/users', usersController.getAllUsers); // Get all users
@@ -42,11 +53,7 @@ app.get('/users/:id', usersController.getUserById); // Get users by id
 app.put('/users/:id', usersController.updateUser); // Update user
 app.delete('/users/:id', usersController.deleteUser); // Delete user
 
-// Step 5, Part 1
-app.get("/users/search", usersController.searchUsers);
 
-// Step 6, Part 3
-app.get("/users/with-books", usersController.getUsersWithBooks);
 
 
 app.listen(port, async () => {
